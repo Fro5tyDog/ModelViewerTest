@@ -48,6 +48,11 @@
       <a-entity mindar-image-target="targetIndex: 0" gltf-model="#construction" position="0 0 -100" scale="15 15 15">
       </a-entity>
 
+      <!-- Message Display Used for testing gltf models comment out when necessary -->
+      <p id="messageDisplay" style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); color: white; font-size: 16px;">
+        Loading model...
+      </p>
+
       <!-- Videos -->
       <a-entity mindar-image-target="targetIndex: 1">
       </a-entity>
@@ -136,6 +141,20 @@
             video.style.display = 'none';
             UIoverlay.style.display = 'flex';
             arSystem.start();
+        });
+
+        //Test gltf model
+        var modelEntity = document.querySelector('[gltf-model]');
+        var messageDisplay = document.getElementById('messageDisplay');
+
+        modelEntity.addEventListener('model-loaded', function () {
+          messageDisplay.textContent = 'Model has been loaded successfully!';
+          messageDisplay.style.color = 'green';
+        });
+
+        modelEntity.addEventListener('model-error', function () {
+          messageDisplay.textContent = 'Failed to load the model.';
+          messageDisplay.style.color = 'red';
         });
       });
 
