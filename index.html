@@ -10,6 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'> 
   </head>
   <body id="body-index" style="margin: 0; background-color: black;">
+    <div id="UI-overlay" style="max-height: 100%; max-width: 100%;">
       <div id="UI-placement">
         <!-- scanning box crosshair copied from MindAR example -->
         <div id="scanning-overlay" class="mindar-ui-scanning">
@@ -37,6 +38,7 @@
           </div>
         </div> 
       </div>  
+    </div>
     
     <a-scene mindar-image="imageTargetSrc: ./static/mind-file/ExpoMarch2024/Expo.mind; uiScanning: #scanning-overlay; filterMinCF:0.0001; filterBeta: 0.001;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded>
 
