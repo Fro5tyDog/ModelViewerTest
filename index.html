@@ -182,7 +182,8 @@
           }
         });  
 
-
+      const sceneEl = document.querySelector("a-scene");
+      const arSystem = sceneEl.systems["mindar-image-system"];
       screen.orientation.addEventListener("change", () => {
         // window.location.reload();
         arSystem.stop();
