@@ -63,12 +63,13 @@
     <button id="cancelBtn" style="position: absolute; top: 20px; right: 20px; display: none;">Cancel</button>
 
     <video class="videos" id="video" src="./static/video/TestSec.mp4" controls loop="true" webkit-playsinline playsinline 
-      width="320" height="180">
+      width="320" height="180"
+      style="display: none; 
+      position: absolute; 
+      top: 50%; 
+      left: 50%; 
+      transform: translate(-50%, -50%);">
     </video>
-
-    <!-- Message Display Used for testing gltf models comment out when necessary -->
-    <p id="messageDisplay" style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); color: white; font-size: 16px;">
-    </p>
 
     <script>
 
@@ -142,26 +143,6 @@
             video.style.display = 'none';
             UIoverlay.style.display = 'flex';
             arSystem.start();
-        });
-
-        //Test gltf model
-        var modelEntity = document.querySelector('[mindar-image-target="targetIndex: 0"]');
-        var messageDisplay = document.getElementById('messageDisplay');
-
-        modelEntity.addEventListener('model-loaded', function () {
-          messageDisplay.textContent = 'Model has been loaded successfully!';
-          messageDisplay.style.color = 'green';
-        });
-
-        modelEntity.addEventListener('model-error', function (e) {
-          messageDisplay.textContent = 'Failed to load the model. Error: ' + e.detail.error;
-          messageDisplay.style.color = 'red';
-        });
-
-        // Monitor targetFound separately to check target detection
-        modelEntity.addEventListener('targetFound', function() {
-          messageDisplay.textContent = 'Target found, loading model...';
-          messageDisplay.style.color = 'yellow';
         });
         
       });
